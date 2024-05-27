@@ -18,8 +18,8 @@ from telegram.error import BadRequest, TelegramError, Unauthorized
 from telegram.ext import CallbackContext, CallbackQueryHandler, CommandHandler
 from telegram.utils.helpers import mention_html, mention_markdown
 
-import MukeshRobot.modules.sql.feds_sql as sql
-from MukeshRobot import (
+import MahakRobot.modules.sql.feds_sql as sql
+from MahakRobot import (
     DRAGONS,
     EVENT_LOGS,
     LOGGER,
@@ -29,15 +29,15 @@ from MukeshRobot import (
     WOLVES,
     dispatcher,
 )
-from MukeshRobot.modules.disable import DisableAbleCommandHandler
-from MukeshRobot.modules.helper_funcs.alternate import send_message
-from MukeshRobot.modules.helper_funcs.chat_status import is_user_admin
-from MukeshRobot.modules.helper_funcs.extraction import (
+from MahakRobot.modules.disable import DisableAbleCommandHandler
+from MahakRobot.modules.helper_funcs.alternate import send_message
+from MahakRobot.modules.helper_funcs.chat_status import is_user_admin
+from MahakRobot.modules.helper_funcs.extraction import (
     extract_unt_fedban,
     extract_user,
     extract_user_fban,
 )
-from MukeshRobot.modules.helper_funcs.string_handling import markdown_parser
+from MahakRobot.modules.helper_funcs.string_handling import markdown_parser
 
 
 
