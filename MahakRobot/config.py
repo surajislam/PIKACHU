@@ -17,23 +17,23 @@ class Config(object):
     OWNER_ID = getenv("OWNER_ID", "6195725562") 
 
 
-    OWNER_USERNAME = ("OWNER_USERNAME", "loco_x_Pilot")
+    OWNER_USERNAME = ("OWNER_USERNAME", "GOD_R4V4N")
     
-    SUPPORT_CHAT = getenv("SUPPORT_CHAT", "the_friendz")
+    SUPPORT_CHAT = getenv("SUPPORT_CHAT", "Ravan_Lankaa")
    
     START_IMG = getenv("START_IMG", "https://graph.org/file/eaa3a2602e43844a488a5.jpg")
 
-    JOIN_LOGGER = getenv("JOIN_LOGGER", "-1002080453210")
+    JOIN_LOGGER = getenv("JOIN_LOGGER", "-1002100219353")
    
-    EVENT_LOGS = getenv("EVENT_LOGS",  "-1002080453210")
+    EVENT_LOGS = getenv("EVENT_LOGS",  "-1002100219353")
   
-    ERROR_LOGS = getenv("ERROR_LOGS", "-1001929735324")
+    ERROR_LOGS = getenv("ERROR_LOGS", "-1002100219353")
 
     MONGO_DB_URI= getenv("MONGO_DB_URI", None)
    
-    LOG_CHANNEL = getenv("LOG_CHANNEL", "-1001852000392")
+    LOG_CHANNEL = getenv("LOG_CHANNEL", "-1002100219353")
    
-    BOT_USERNAME = getenv("BOT_USERNAME" , "avishaBot")
+    BOT_USERNAME = getenv("BOT_USERNAME" , "MahakXBot")
    
     DATABASE_URL = getenv("DATABASE_URL", None)
 
