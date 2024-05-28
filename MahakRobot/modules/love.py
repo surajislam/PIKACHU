@@ -46,7 +46,7 @@ def love_command(client, message):
         response = "✦ ᴘʟᴇᴀsᴇ ᴇɴᴛᴇʀ ᴛᴡᴏ ɴᴀᴍᴇs ᴀғᴛᴇʀ /love ᴄᴏᴍᴍᴀɴᴅ."
     client.send_message(message.chat.id, response, reply_markup=InlineKeyboardMarkup(EVAA),)
 
-__mod_name__ = "ʟᴏɢᴏ"
+__mod_name__ = "ʟᴏᴠᴇ"
 
 __help__ = f"""
 ❍ ᴘʟᴇᴀsᴇ ᴇɴᴛᴇʀ ᴛᴡᴏ ɴᴀᴍᴇs ᴀғᴛᴇʀ /love ᴄᴏᴍᴍᴀɴᴅ."""
