@@ -30,7 +30,7 @@ EVAA = [
     ],
 ]
 
-@app.on_message(filters.command("lov", prefixes="/"))
+@app.on_message(filters.command("love", prefixes="/"))
 def love_command(client, message):
     command, *args = message.text.split(" ")
     if len(args) >= 2:
@@ -43,5 +43,5 @@ def love_command(client, message):
         response = f"❅ ʜᴇʀᴇ ɪs ʏᴏᴜʀ ʟᴏᴠᴇ ᴘᴇʀᴄᴇɴᴛᴀɢᴇ ⏤‌★ \n\n❅ {name1} ♥️ + {name2} ♥️ = {love_percentage}%\n\n{love_message}"
         #client.send_message(message.chat.id, response, reply_markup=InlineKeyboardMarkup(EVAA),)
     else:
-        response = "✦ ᴘʟᴇᴀsᴇ ᴇɴᴛᴇʀ ᴛᴡᴏ ɴᴀᴍᴇs ᴀғᴛᴇʀ /lov ᴄᴏᴍᴍᴀɴᴅ."
+        response = "✦ ᴘʟᴇᴀsᴇ ᴇɴᴛᴇʀ ᴛᴡᴏ ɴᴀᴍᴇs ᴀғᴛᴇʀ /love ᴄᴏᴍᴍᴀɴᴅ."
     client.send_message(message.chat.id, response, reply_markup=InlineKeyboardMarkup(EVAA),)
