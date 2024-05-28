@@ -45,3 +45,11 @@ def love_command(client, message):
     else:
         response = "✦ ᴘʟᴇᴀsᴇ ᴇɴᴛᴇʀ ᴛᴡᴏ ɴᴀᴍᴇs ᴀғᴛᴇʀ /love ᴄᴏᴍᴍᴀɴᴅ."
     client.send_message(message.chat.id, response, reply_markup=InlineKeyboardMarkup(EVAA),)
+
+__mod_name__ = "ʟᴏɢᴏ"
+
+__help__ = f"""
+❍ @{BOT_USERNAME} ᴄᴀɴ ᴄʀᴇᴀᴛᴇ sᴏᴍᴇ ʙᴇᴀᴜᴛɪғᴜʟ ᴀɴᴅ ᴀᴛᴛʀᴀᴄᴛɪᴠᴇ ʟᴏɢᴏ ғᴏʀ ʏᴏᴜʀ ᴘʀᴏғɪʟᴇ ᴘɪᴄs.
+
+
+❍ /logo (Text) *➛* ᴄʀᴇᴀᴛᴇ ᴀ ʟᴏɢᴏ ᴏғ ʏᴏᴜʀ ɢɪᴠᴇɴ ᴛᴇxᴛ ᴡɪᴛʜ ʀᴀɴᴅᴏᴍ ᴠɪᴇᴡ.
