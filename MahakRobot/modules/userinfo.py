@@ -246,7 +246,7 @@ def info(update: Update, context: CallbackContext):
     if user.username:
         text += f"\n❍ <b>ᴜsᴇʀɴᴀᴍᴇ ➛</b> @{html.escape(user.username)}"
 
-    text += f"\n❍ <b>ʟɪɴᴋ ➛</b> {mention_html(user.id, 'link')}"
+    text += f"\n❍ <b>ʟɪɴᴋ ➛</b> {mention_html(user.id, 'ᴜsᴇʀ ʟɪɴᴋ')}"
 
     if chat.type != "private" and user_id != bot.id:
         _stext = "\n❍ <b>ᴩʀᴇsᴇɴᴄᴇ ➛</b> <code>{}</code>"
