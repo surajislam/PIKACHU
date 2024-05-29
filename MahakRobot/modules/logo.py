@@ -435,7 +435,7 @@ async def lego(event):
     quew = event.pattern_match.group(1)
     if event.sender_id != OWNER_ID and not quew:
         await event.reply(
-            "๏`ɢɪᴠᴇ sᴏᴍᴇ ᴛᴇxᴛ ᴛᴏ ᴄʀᴇᴀᴛᴇ ʟᴏɢᴏ ʙᴀʙᴇ​ !`\n๏`ᴇxᴀᴍᴘʟᴇ /logo <ʀᴏʏ-ᴇᴅɪᴛx>`"
+            "๏`ɢɪᴠᴇ sᴏᴍᴇ ᴛᴇxᴛ ᴛᴏ ᴄʀᴇᴀᴛᴇ ʟᴏɢᴏ ʙᴀʙᴇ​ !`\n๏`ᴇxᴀᴍᴘʟᴇ /logo <ɢᴏᴅ ʀᴀᴠᴀɴ>`"
         )
         return
     pesan = await event.reply("**๏ ᴄʀᴇᴀᴛɪɴɢ ʏᴏᴜʀ ʟᴏɢᴏ ᴘʟᴇᴀsᴇ ᴡᴀɪᴛ ᴀ sᴇᴄ​...**")
