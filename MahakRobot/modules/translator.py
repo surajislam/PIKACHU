@@ -96,8 +96,8 @@ async def repo(client, message):
                         "ᴏᴡɴᴇʀ",user_id=OWNER_ID
                     ),
                     InlineKeyboardButton(
-                        "ʀᴇᴘᴏ",
-                        callback_data="gib_source",
+                        text="ʀᴇᴘᴏ",
+                        url=f"https://google.com",
                     ),
                 ]
             ]
