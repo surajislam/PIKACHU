@@ -4,7 +4,6 @@ from pyrogram import Client, filters
 from pyrogram.types import InputMediaPhoto, Message
 from MahakRobot import pbot as app
 
-
 @app.on_message(filters.command("bingimg"))
 async def bingimg_search(client: Client, message: Message):
     try:
