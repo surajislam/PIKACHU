@@ -42,3 +42,8 @@ async def bingimg_search(client: Client, message: Message):
     # Delete the searching message and the original command message
     await search_message.delete()
     await message.delete()
+
+__mod_name__ = "ɪᴍᴀɢᴇ"
+__help__ = """
+ ❍ /bingimg ➛ ɢᴇɴᴇʀᴀᴛᴇ ɪᴍᴀɢᴇ ʙʏ ɢɪᴠɪɴɢ ǫᴜᴇʀʏ.
+ """
