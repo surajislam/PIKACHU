@@ -5,7 +5,7 @@ from MahakRobot.events import register
 GPT_API_URL = "https://pinteresimage.nepcoderdevs.workers.dev"
 
 
-@register(pattern="^/ask (.*)")
+@register(pattern="^/draw (.*)")
 async def chat_gpt(event):
     if event.fwd_from:
         return
