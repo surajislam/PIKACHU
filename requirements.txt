@@ -1,4 +1,4 @@
-aiofiles==23.2.1
+aiofiles
 aiosqlite
 aiohttp==3.9.1
 request
