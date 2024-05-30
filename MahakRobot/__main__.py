@@ -514,10 +514,10 @@ def MukeshRobot_Main_Callback(update: Update, context: CallbackContext):
             reply_markup=InlineKeyboardMarkup(
                 [
                     [
-                        InlineKeyboardButton(text="ᴍᴀɴᴀɢᴇ", callback_data="help_back"),
-                        InlineKeyboardButton(text="ᴍᴜsɪᴄ", callback_data="Music_")
+                        InlineKeyboardButton(text="ᴍᴀɴᴀɢᴇ", callback_data="help_back")
                     ],
                     [
+InlineKeyboardButton(text="ᴍᴜsɪᴄ", callback_data="Music_"),
                         InlineKeyboardButton(text="ᴀɴɪᴍᴇ", callback_data="source_") 
                     ],
                     [
