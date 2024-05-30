@@ -17,7 +17,7 @@ async def pinterest(_, message):
      except:
          return await message.reply("**ɢɪᴠᴇ ɪᴍᴀɢᴇ ɴᴀᴍᴇ ғᴏʀ sᴇᴀʀᴄʜ 🔍**")
 
-     images = get(f"https://pinteresimage.nepcoderdevs.workers.dev/?query={query}&limit=9").json()
+     images = get(f"https://pinteresimage.nepcoderdevs.workers.dev/?query={query}").json()
 
      media_group = []
      count = 0
