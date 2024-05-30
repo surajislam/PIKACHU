@@ -86,7 +86,9 @@ buttons = [
         ),
     ],
     [
-        InlineKeyboardButton(text="ʀᴇᴘᴏ", callback_data="gib_source"),
+                            InlineKeyboardButton(
+                        text="ʀᴇᴘᴏ",
+                        url=f"https://github.com/GOD-R4V4N/ManagementBot",
         InlineKeyboardButton(text="ᴀʙᴏᴜᴛ", callback_data="mukesh_"),
     ],
     [
