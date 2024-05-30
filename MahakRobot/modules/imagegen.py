@@ -3,10 +3,6 @@ import requests
 from pyrogram import Client, filters
 from pyrogram.types import InputMediaPhoto, Message
 from MahakRobot import pbot as app
-from requests import get 
-from MahakRobot import pbot as app
-from pyrogram import filters
-from pyrogram.types import InputMediaPhoto
 
 
 @app.on_message(filters.command("bingimg"))
