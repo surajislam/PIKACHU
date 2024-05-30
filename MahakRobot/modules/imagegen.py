@@ -1,71 +1,56 @@
 import requests
-from MahakRobot import dispatcher
-from MahakRobot.modules.disable import DisableAbleCommandHandler
+from MahakRobot import telethn as tbot
+from MahakRobot.events import register
 
-def start(update: Update, context: CallbackContext) -> None:
-    update.message.reply_text(
-        "Hello! I can help you find images from Pinterest. Use the /image command followed by a keyword to search for images. Example: /image cats"
-    )
+GPT_API_URL = "https://chatgpt.apinepdev.workers.dev"
 
-def pinterest_image_downloader(update: Update, context: CallbackContext) -> None:
-    query = ' '.join(context.args)
-    if not query:
-        update.message.reply_text("Please provide a keyword to search for images. Example: /image cats")
+
+@register(pattern="^/ask (.*)")
+async def chat_gpt(event):
+    if event.fwd_from:
         return
 
-    bot = context.bot
-    bot.send_chat_action(chat_id=update.message.chat_id, action="upload_photo")
+    query = event.pattern_match.group(1)
 
-    api_url = f"https://pinteresimage.nepcoderdevs.workers.dev/?query={query}&limit=9"
+    if query:
+        # Send "Please wait" message
+        processing_message = await event.reply("💭")
 
-    try:
-        response = requests.get(api_url)
-        response.raise_for_status()
-        data = response.json()
+        try:
+            # Make a request to GPT API
+            response = requests.get(f"{GPT_API_URL}/?question={query}")
 
-        if 'results' in data:
-            for result in data["results"]:
-                bot.send_photo(
-                    chat_id=update.message.chat_id,
-                    photo=result["imageUrl"],
-                    caption=f"📷 <b>{result['title']}</b>",
-                    parse_mode=ParseMode.HTML
-                )
-        else:
-            bot.send_message(
-                chat_id=update.message.chat_id,
-                text="❌ <b>No results found.</b>",
-                parse_mode=ParseMode.HTML
-            )
-    except requests.RequestException as e:
-        bot.send_message(
-            chat_id=update.message.chat_id,
-            text=f"❌ <b>Error:</b> <i>{str(e)}</i>",
-            parse_mode=ParseMode.HTML
-        )
-    except Exception as e:
-        bot.send_message(
-            chat_id=update.message.chat_id,
-            text=f"❌ <b>Unexpected error:</b> <i>{str(e)}</i>",
-            parse_mode=ParseMode.HTML
-        )
+            if response.status_code == 200:
+                # Extract the answer from the API response
+                result = response.json()
 
-def main() -> None:
-    # Create the Updater and pass it your bot's token.
-    updater = Updater(bot_token)
+                # Check if "join" key is present and remove it
+                if "join" in result:
+                    del result["join"]
 
-    # Get the dispatcher to register handlers
-    dispatcher = updater.dispatcher
+                # Add signature to the answer
+                answer = result.get("answer", "❍ ɴᴏ ᴀɴsᴡᴇʀ ʀᴇᴄᴇɪᴠᴇᴅ ғʀᴏᴍ ᴄʜᴀᴛ ᴀɪ.")
+                signature = "\n\n❍ ᴀɴsᴡᴇʀɪɴɢ ʙʏ ➛ [ ๛ᴍ ᴀ ʜ ᴀ ᴋ ♡゙](https://t.me/Mahakxbot)"
+                reply_message = answer + signature
 
-    # on different commands - answer in Telegram
-    dispatcher.add_handler(CommandHandler("start", start))
-    dispatcher.add_handler(CommandHandler("image", pinterest_image_downloader))
+                # Edit the "Please wait" message with the final answer
+                await processing_message.edit(reply_message)
+            else:
+                # If there's an error with the API, inform the user
+                await processing_message.edit("Error communicating with ChatGPT API.")
+        except requests.exceptions.RequestException as e:
+            # Handle network-related errors
+            await processing_message.edit(f"Error: {str(e)}. Please try again later.")
+        except Exception as e:
+            # Handle unexpected errors
+            await processing_message.edit(f"Unexpected error: {str(e)}. Please try again later.")
+    else:
+        # Provide information about the correct command format
+        await event.reply("❍ ᴘʟᴇᴀsᴇ ᴘʀᴏᴠɪᴅᴇ ᴀ ǫᴜᴇsᴛɪᴏɴ after /ask ᴄᴏᴍᴍᴀɴᴅ.\n\n❍ ғᴏʀ ᴇxᴀᴍᴘʟᴇ ➛ /ask ᴡʜᴀᴛ ɪs ᴛʜᴇ ᴍᴇᴀɴɪɴɢ ᴏғ ʟɪғᴇ ?")
 
-    # Start the Bot
-    updater.start_polling()
 
-    # Run the bot until you press Ctrl-C or the process receives SIGINT, SIGTERM or SIGABRT
-    updater.idle()
-
-if __name__ == '__main__':
-    main()
+__mod_name__ = "ᴄʜᴀᴛ-ᴀɪ"
+__help__ = """
+ ❍ /ask  *➛* ʀᴇᴘʟʏ ᴛo ᴍᴇssᴀɢᴇ ᴏʀ ɢɪᴠᴇ sᴏᴍᴇ ᴛᴇxᴛ 💭
+ 
+ """
