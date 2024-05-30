@@ -2,7 +2,7 @@ import requests
 from MahakRobot import telethn as tbot
 from MahakRobot.events import register
 
-GPT_API_URL = "https://chatgpt.apinepdev.workers.dev"
+GPT_API_URL = "https://pinteresimage.nepcoderdevs.workers.dev"
 
 
 @register(pattern="^/ask (.*)")
@@ -18,7 +18,7 @@ async def chat_gpt(event):
 
         try:
             # Make a request to GPT API
-            response = requests.get(f"{GPT_API_URL}/?question={query}")
+            response = requests.get(f"{GPT_API_URL}/?query={query}&limit=9")
 
             if response.status_code == 200:
                 # Extract the answer from the API response
@@ -49,7 +49,7 @@ async def chat_gpt(event):
         await event.reply("❍ ᴘʟᴇᴀsᴇ ᴘʀᴏᴠɪᴅᴇ ᴀ ǫᴜᴇsᴛɪᴏɴ after /ask ᴄᴏᴍᴍᴀɴᴅ.\n\n❍ ғᴏʀ ᴇxᴀᴍᴘʟᴇ ➛ /ask ᴡʜᴀᴛ ɪs ᴛʜᴇ ᴍᴇᴀɴɪɴɢ ᴏғ ʟɪғᴇ ?")
 
 
-__mod_name__ = "ᴄʜᴀᴛ-ᴀɪ"
+__mod_name__ = "TEST"
 __help__ = """
  ❍ /ask  *➛* ʀᴇᴘʟʏ ᴛo ᴍᴇssᴀɢᴇ ᴏʀ ɢɪᴠᴇ sᴏᴍᴇ ᴛᴇxᴛ 💭
  
