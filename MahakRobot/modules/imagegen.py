@@ -1,56 +1,53 @@
-import requests
-from MahakRobot import telethn as tbot
+import os
+import shutil
+import glob
+from re import findall
+from bing_image_downloader import downloader
+from telethon import *
+from telethon.tl import functions
+from telethon.tl import types
+from telethon.tl.types import *
+
+from MahakRobot import telethn
 from MahakRobot.events import register
 
-GPT_API_URL = "https://pinteresimage.nepcoderdevs.workers.dev"
 
+async def is_register_admin(chat, user):
+    if isinstance(chat, (types.InputPeerChannel, types.InputChannel)):
 
-@register(pattern="^/draw (.*)")
-async def chat_gpt(event):
-    if event.fwd_from:
-        return
+        return isinstance(
+            (await telethn(functions.channels.GetParticipantRequest(chat, user))).participant,
+            (types.ChannelParticipantAdmin, types.ChannelParticipantCreator)
+        )
+    elif isinstance(chat, types.InputPeerChat):
 
-    query = event.pattern_match.group(1)
-
-    if query:
-        # Send "Please wait" message
-        processing_message = await event.reply("💭")
-
-        try:
-            # Make a request to GPT API
-            response = requests.get(f"{GPT_API_URL}/?query={query}&limit=9")
-
-            if response.status_code == 200:
-                # Extract the answer from the API response
-                result = response.json()
-
-                # Check if "join" key is present and remove it
-                if "join" in result:
-                    del result["join"]
-
-                # Add signature to the answer
-                answer = result.get("answer", "❍ ɴᴏ ᴀɴsᴡᴇʀ ʀᴇᴄᴇɪᴠᴇᴅ ғʀᴏᴍ ᴄʜᴀᴛ ᴀɪ.")
-                signature = "\n\n❍ ᴀɴsᴡᴇʀɪɴɢ ʙʏ ➛ [ ๛ᴍ ᴀ ʜ ᴀ ᴋ ♡゙](https://t.me/Mahakxbot)"
-                reply_message = answer + signature
-
-                # Edit the "Please wait" message with the final answer
-                await processing_message.edit(reply_message)
-            else:
-                # If there's an error with the API, inform the user
-                await processing_message.edit("Error communicating with ChatGPT API.")
-        except requests.exceptions.RequestException as e:
-            # Handle network-related errors
-            await processing_message.edit(f"Error: {str(e)}. Please try again later.")
-        except Exception as e:
-            # Handle unexpected errors
-            await processing_message.edit(f"Unexpected error: {str(e)}. Please try again later.")
+        ui = await client.get_peer_id(user)
+        ps = (await client(functions.messages.GetFullChatRequest(chat.chat_id))) \
+            .full_chat.participants.participants
+        return isinstance(
+            next((p for p in ps if p.user_id == ui), None),
+            (types.ChatParticipantAdmin, types.ChatParticipantCreator)
+        )
     else:
-        # Provide information about the correct command format
-        await event.reply("❍ ᴘʟᴇᴀsᴇ ᴘʀᴏᴠɪᴅᴇ ᴀ ǫᴜᴇsᴛɪᴏɴ after /ask ᴄᴏᴍᴍᴀɴᴅ.\n\n❍ ғᴏʀ ᴇxᴀᴍᴘʟᴇ ➛ /ask ᴡʜᴀᴛ ɪs ᴛʜᴇ ᴍᴇᴀɴɪɴɢ ᴏғ ʟɪғᴇ ?")
+        return None
 
 
-__mod_name__ = "TEST"
-__help__ = """
- ❍ /ask  *➛* ʀᴇᴘʟʏ ᴛo ᴍᴇssᴀɢᴇ ᴏʀ ɢɪᴠᴇ sᴏᴍᴇ ᴛᴇxᴛ 💭
- 
- """
+@register(pattern="^/pimg (.*)")
+async def img_sampler(event):
+     if event.fwd_from:
+        return
+     if event.is_group:
+       if not (await is_register_admin(event.input_chat, event.message.sender_id)):
+          await event.reply("♥︎ ʏᴏᴜ ᴀʀᴇ ɴᴏᴛ ᴀɴ ᴀᴅᴍɪɴ, ʏᴏᴜ ᴄᴀɴ'ᴛ ᴜsᴇ ᴛʜɪs ᴄᴍᴅ,, ʙᴜᴛ ʏᴏᴜ ᴄᴀɴ ᴜsᴇ ɪɴ ᴍʏ ᴘᴍ.")
+          return
+     query = event.pattern_match.group(1)
+     jit = f'"{query}"'
+     downloader.download(jit, limit=5, output_dir='store', adult_filter_off=False, force_replace=False, timeout=60)
+     os.chdir(f'./store/"{query}"')
+     types = ('*.png', '*.jpeg', '*.jpg') # the tuple of file types
+     filesgrabbed = []
+     for files in types:
+         filesgrabbed.extend(glob.glob(files))
+     await event.client.send_file(event.chat_id, filesgrabbed, reply_to=event.id)
+     os.remove(filesgrabbed)
+     os.chdir('./')
