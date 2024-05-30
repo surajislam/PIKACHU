@@ -1,53 +1,44 @@
-import os
-import shutil
-import glob
-from re import findall
-from bing_image_downloader import downloader
-from telethon import *
-from telethon.tl import functions
-from telethon.tl import types
-from telethon.tl.types import *
+import json
 
-from MahakRobot import telethn
-from MahakRobot.events import register
+import requests
+from pyrogram import Client, filters
+from pyrogram.types import InputMediaPhoto, Message
+from MahakRobot import pbot as app
 
 
-async def is_register_admin(chat, user):
-    if isinstance(chat, (types.InputPeerChannel, types.InputChannel)):
+@app.on_message(filters.command("bingimg"))
+async def bingimg_search(client: Client, message: Message):
+    try:
+        text = message.text.split(None, 1)[
+            1
+        ]  # Extract the query from command arguments
+    except IndexError:
+        return await message.reply_text(
+            "❍ ᴘʀᴏᴠɪᴅᴇ ᴍᴇ ᴀ ǫᴜᴇʀʏ ᴛᴏ sᴇᴀʀᴄʜ!"
+        )  # Return error if no query is provided
 
-        return isinstance(
-            (await telethn(functions.channels.GetParticipantRequest(chat, user))).participant,
-            (types.ChannelParticipantAdmin, types.ChannelParticipantCreator)
-        )
-    elif isinstance(chat, types.InputPeerChat):
+    search_message = await message.reply_text(
+        "🧪"
+    )  # Display searching message
 
-        ui = await client.get_peer_id(user)
-        ps = (await client(functions.messages.GetFullChatRequest(chat.chat_id))) \
-            .full_chat.participants.participants
-        return isinstance(
-            next((p for p in ps if p.user_id == ui), None),
-            (types.ChatParticipantAdmin, types.ChatParticipantCreator)
-        )
-    else:
-        return None
+    # Send request to Bing image search API
+    url = "https://sugoi-api.vercel.app/bingimg?keyword=" + text
+    resp = requests.get(url)
+    images = json.loads(resp.text)  # Parse the response JSON into a list of image URLs
 
+    media = []
+    count = 0
+    for img in images:
+        if count == 7:
+            break
 
-@register(pattern="^/pimg (.*)")
-async def img_sampler(event):
-     if event.fwd_from:
-        return
-     if event.is_group:
-       if not (await is_register_admin(event.input_chat, event.message.sender_id)):
-          await event.reply("♥︎ ʏᴏᴜ ᴀʀᴇ ɴᴏᴛ ᴀɴ ᴀᴅᴍɪɴ, ʏᴏᴜ ᴄᴀɴ'ᴛ ᴜsᴇ ᴛʜɪs ᴄᴍᴅ,, ʙᴜᴛ ʏᴏᴜ ᴄᴀɴ ᴜsᴇ ɪɴ ᴍʏ ᴘᴍ.")
-          return
-     query = event.pattern_match.group(1)
-     jit = f'"{query}"'
-     downloader.download(jit, limit=5, output_dir='store', adult_filter_off=False, force_replace=False, timeout=60)
-     os.chdir(f'./store/"{query}"')
-     types = ('*.png', '*.jpeg', '*.jpg') # the tuple of file types
-     filesgrabbed = []
-     for files in types:
-         filesgrabbed.extend(glob.glob(files))
-     await event.client.send_file(event.chat_id, filesgrabbed, reply_to=event.id)
-     os.remove(filesgrabbed)
-     os.chdir('./')
+        # Create InputMediaPhoto object for each image URL
+        media.append(InputMediaPhoto(media=img))
+        count += 1
+
+    # Send the media group as a reply to the user
+    await message.reply_media_group(media=media)
+
+    # Delete the searching message and the original command message
+    await search_message.delete()
+    await message.delete()
