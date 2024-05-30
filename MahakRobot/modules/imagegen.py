@@ -1,4 +1,4 @@
-import request 
+import requests
 from MahakRobot import dispatcher
 from MahakRobot.modules.disable import DisableAbleCommandHandler
 
