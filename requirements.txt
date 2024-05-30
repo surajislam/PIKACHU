@@ -1,4 +1,4 @@
-aiofiles==
+aiofiles
 requests==2.32.3
 aiohttp==3.9.1
 apscheduler==3.6.3
