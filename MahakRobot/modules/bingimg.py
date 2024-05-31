@@ -4,7 +4,7 @@ from pyrogram import Client, filters
 from pyrogram.types import InputMediaPhoto, Message
 from MahakRobot import pbot as app
 
-@app.on_message(filters.command("bingimg"))
+@app.on_message(filters.command("bimg"))
 async def bingimg_search(client: Client, message: Message):
     try:
         text = message.text.split(None, 1)[
