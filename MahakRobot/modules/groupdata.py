@@ -54,6 +54,6 @@ async def instatus(app, message):
 
 ❖ ᴘᴏᴡᴇʀᴇᴅ ʙʏ ➥ ๛ᴍ ᴀ ʜ ᴀ ᴋ ♡゙  **""", reply_markup=InlineKeyboardMarkup(EVAA),)
     else:
-        sent_message = await message.reply_text("✦ ONLY ADMINS CAN USE THIS !")
+        sent_message = await message.reply_text("✦ ᴏɴʟʏ ᴀᴅᴍɪɴs ᴜsᴇ ᴛʜɪs ᴄᴏᴍᴍᴏɴᴅs !")
         await sleep(5)
         await sent_message.delete()
