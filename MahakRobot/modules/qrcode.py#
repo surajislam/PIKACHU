@@ -37,7 +37,7 @@ async def qrcode_(_, message: Message):
     else:
         text =message.text.split(None, 1)[1]
     m =await message.reply_text( "❍ `ᴘʟᴇᴀsᴇ ᴡᴀɪᴛ...,\n\n❍ ᴄʀᴇᴀᴛɪɴɢ ʏᴏᴜʀ ǫʀᴄᴏᴅᴇ ...`")
-    write = requests.get(f"https://mukesh-api.vercel.app/qrcode/{text}").json()["results"]
+    write = requests.get(f"https://dynamicqrcode.nepcoderdevs.workers.dev/?message={text}").json()["results"]
 
     caption = f"""
 ✦ sᴜᴄᴇssғᴜʟʟʏ ɢᴇɴᴇʀᴀᴛᴇᴅ ǫʀᴄᴏᴅᴇ ✦
