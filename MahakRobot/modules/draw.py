@@ -24,6 +24,6 @@ async def imagine_(b, message: Message):
     🥀ʀᴇǫᴜᴇsᴛᴇᴅ ʙʏ : {message.from_user.mention}
     """
         await roy.delete()
-        await message.reply_photo("mahak.jpg",caption=caption,quote=True)
+        await message.reply_photo("roy.jpg",caption=caption,quote=True)
     except Exception as e:
         await roy.edit_text(f"error {e}")
