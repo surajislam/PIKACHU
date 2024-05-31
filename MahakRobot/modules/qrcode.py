@@ -46,3 +46,11 @@ def qr_handler(client, message: Message):
 
     else:
         message.reply_text("✦ ᴘʟᴇᴀsᴇ ᴘʀᴏᴠɪᴅᴇ ᴛʜᴇ ᴛᴇxᴛ ғᴏʀ ᴛʜᴇ ǫʀ ᴄᴏᴅᴇ ᴀғᴛᴇʀ ᴛʜᴇ ᴄᴏᴍᴍᴀɴᴅ. ᴇxᴀᴍᴘʟᴇ ᴜsᴀɢᴇ ➠ /qr ᴛᴇxᴛ")
+
+__mod_name__ = "ǫʀᴄᴏᴅᴇ"
+
+__help__ = f"""
+
+
+❍ /qr (Text) *➛* ᴄʀᴇᴀᴛᴇ ᴀ ǫʀᴄᴏᴅᴇ ᴏғ ʏᴏᴜʀ ɢɪᴠᴇɴ ᴛᴇxᴛ.
+"""
