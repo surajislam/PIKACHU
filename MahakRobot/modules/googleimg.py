@@ -32,7 +32,7 @@ async def is_register_admin(chat, user):
         return None
 
 
-@register(pattern="^/pimg (.*)")
+@register(pattern="^/gimg (.*)")
 async def img_sampler(event):
      if event.fwd_from:
         return
