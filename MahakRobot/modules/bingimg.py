@@ -6,7 +6,7 @@ from pyrogram.types import InputMediaPhoto, Message
 from MahakRobot import pbot as app
 
 
-@app.on_message(filters.command("bingimg"))
+@app.on_message(filters.command("gimg"))
 async def bingimg_search(client: Client, message: Message):
     try:
         text = message.text.split(None, 1)[
@@ -45,6 +45,6 @@ async def bingimg_search(client: Client, message: Message):
 
 __mod_name__ = "ɪᴍᴀɢᴇ"
 __help__ = """
- ❍ /bimg ➛ ɢᴇɴᴇʀᴀᴛᴇ ɪᴍᴀɢᴇ ʙʏ ɢɪᴠɪɴɢ ǫᴜᴇʀʏ.
+ ❍ /gimg ➛ ɢᴇɴᴇʀᴀᴛᴇ ɪᴍᴀɢᴇ ʙʏ ɢɪᴠɪɴɢ ǫᴜᴇʀʏ.
  ❍ /draw ➛ ɢᴇɴᴇʀᴀᴛᴇ ɪᴍᴀɢᴇ ʙʏ ɢɪᴠɪɴɢ ǫᴜᴇʀʏ.
  """
