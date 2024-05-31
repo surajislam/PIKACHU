@@ -16,7 +16,7 @@ async def draw_(b, message: Message):
     try:
         await b.send_chat_action(message.chat.id, ChatAction.UPLOAD_PHOTO)
         x=api.ai_image(text)
-        with open("nykaa.jpg", 'wb') as f:
+        with open("mahak.jpg", 'wb') as f:
             f.write(x)
         caption = f"""⬤ ᴅʀᴀᴡɪɴɢ ɢᴇɴᴇʀᴀᴛᴇ ʙʏ ➥  ๛ᴍ ᴀ ʜ ᴀ ᴋ ♡゙ """
         await app.delete()
