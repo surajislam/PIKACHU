@@ -2,7 +2,7 @@ from pyrogram import Client, filters, types
 from pyrogram.errors import *
 import re
 import time
-from MahakRobot import app
+from MahakRobot import pbot as app
 import config
 from config import BOT_USERNAME
 
