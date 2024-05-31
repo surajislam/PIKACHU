@@ -69,3 +69,11 @@ def generate(client, message):
     length = 6  # Standard credit card length
     card_number = generate_test_card_number(prefix, length)
     message.reply_text(f"❖ ʙɪɴ sᴜᴄᴄᴇssғᴜʟʟʏ ɢᴇɴᴇʀᴀᴛᴇᴅ\n\n" f"● ʜᴇʀᴇ ɪs ʏᴏᴜʀ ʙɪɴ ➥ `{card_number}` ", reply_markup=InlineKeyboardMarkup(EVAA),)
+
+__mod_name__ = "ʙɪɴ"
+
+__help__ = """
+ ❍ ᴘʀᴏᴠɪᴅᴇs ʏᴏᴜ ɪɴғᴏʀᴍᴀᴛɪᴏɴ ᴀʙᴏᴜᴛ ᴀ ɢɪᴛʜᴜʙ ᴘʀᴏғɪʟᴇ. 
+
+ ❍ /gbin *➛* ɢᴇɴᴇʀᴀᴛᴇ ᴀ ʀᴀɴᴅᴏᴍ ʙɪɴ.
+"""
