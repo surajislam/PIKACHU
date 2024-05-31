@@ -4,7 +4,8 @@ import re
 import time
 from MahakRobot import pbot as app
 import config
-from config import BOT_USERNAME
+#from config 
+import BOT_USERNAME
 
 
 PREFIX = "/"
