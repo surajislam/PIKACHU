@@ -4,7 +4,7 @@ from MahakRobot import pbot as app
 from pyrogram import filters
 from pyrogram.types import InputMediaPhoto
 
-@app.on_message(filters.command(["image"], prefixes=["/", "!", "%", ",", ".", "@", "#"]))
+@app.on_message(filters.command(["pntimg"], prefixes=["/", "!", "%", ",", ".", "@", "#"]))
 async def pinterest(_, message):
     chat_id = message.chat.id
 
