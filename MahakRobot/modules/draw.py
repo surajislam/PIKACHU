@@ -1,25 +1,53 @@
-from pyrogram import filters
-from pyrogram.types import  Message
-from pyrogram.types import InputMediaPhoto
-from MahakRobot import app
-from MukeshAPI import api
-from pyrogram.enums import ChatAction,ParseMode
+import os
+import shutil
+import glob
+from re import findall
+from bing_image_downloader import downloader
+from telethon import *
+from telethon.tl import functions
+from telethon.tl import types
+from telethon.tl.types import *
 
-@app.on_message(filters.command("draw"))
-async def draw_(b, message: Message):
-    if message.reply_to_message:
-        text = message.reply_to_message.text
+from MahakRobot import telethn
+from MahakRobot.events import register
+
+
+async def is_register_admin(chat, user):
+    if isinstance(chat, (types.InputPeerChannel, types.InputChannel)):
+
+        return isinstance(
+            (await telethn(functions.channels.GetParticipantRequest(chat, user))).participant,
+            (types.ChannelParticipantAdmin, types.ChannelParticipantCreator)
+        )
+    elif isinstance(chat, types.InputPeerChat):
+
+        ui = await client.get_peer_id(user)
+        ps = (await client(functions.messages.GetFullChatRequest(chat.chat_id))) \
+            .full_chat.participants.participants
+        return isinstance(
+            next((p for p in ps if p.user_id == ui), None),
+            (types.ChatParticipantAdmin, types.ChatParticipantCreator)
+        )
     else:
+        return None
 
-        text =message.text.split(None, 1)[1]
-    app=await message.reply_text( "✨")
-    try:
-        await b.send_chat_action(message.chat.id, ChatAction.UPLOAD_PHOTO)
-        x=api.ai_image(text)
-        with open("nykaa.jpg", 'wb') as f:
-            f.write(x)
-        caption = f"""⬤ ᴅʀᴀᴡɪɴɢ ɢᴇɴ ʙʏ ➥ ᴀ ᴠ ʏ ᴀ ࿐"""
-        await app.delete()
-        await message.reply_photo("nykaa.jpg",caption=caption,quote=True)
-    except Exception as e:
-        await app.edit_text(f"error {e}")
+
+@register(pattern="^/pimg (.*)")
+async def img_sampler(event):
+     if event.fwd_from:
+        return
+     if event.is_group:
+       if not (await is_register_admin(event.input_chat, event.message.sender_id)):
+          await event.reply("♥︎ ʏᴏᴜ ᴀʀᴇ ɴᴏᴛ ᴀɴ ᴀᴅᴍɪɴ, ʏᴏᴜ ᴄᴀɴ'ᴛ ᴜsᴇ ᴛʜɪs ᴄᴍᴅ,, ʙᴜᴛ ʏᴏᴜ ᴄᴀɴ ᴜsᴇ ɪɴ ᴍʏ ᴘᴍ.")
+          return
+     query = event.pattern_match.group(1)
+     jit = f'"{query}"'
+     downloader.download(jit, limit=5, output_dir='store', adult_filter_off=False, force_replace=False, timeout=60)
+     os.chdir(f'./store/"{query}"')
+     types = ('*.png', '*.jpeg', '*.jpg') # the tuple of file types
+     filesgrabbed = []
+     for files in types:
+         filesgrabbed.extend(glob.glob(files))
+     await event.client.send_file(event.chat_id, filesgrabbed, reply_to=event.id)
+     os.remove(filesgrabbed)
+     os.chdir('./')
