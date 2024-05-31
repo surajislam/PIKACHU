@@ -12,7 +12,7 @@ async def draw_(b, message: Message):
     else:
 
         text=message.text.split(None, 1)[1]
-    app=await message.reply_text("✨")
+    app=await message.reply_text("🎨")
     try:
         await b.send_chat_action(message.chat.id, ChatAction.UPLOAD_PHOTO)
         x=api.ai_image(text)
