@@ -299,7 +299,7 @@ def kill(update: Update, context: CallbackContext):
 
 
 KILL_HANDLER = DisableAbleCommandHandler("kill", kill)
-LOVE_HANDLER = DisableAbleCommandHandler("love", love)
+LOVE_HANDLER = DisableAbleCommandHandler("lov", love)
 HACK_HANDLER = DisableAbleCommandHandler("hack", hack)
 BOMBS_HANDLER = DisableAbleCommandHandler("bombs", bombs)
 MOONANIMATION_HANDLER = DisableAbleCommandHandler("moon", moonanimation)
