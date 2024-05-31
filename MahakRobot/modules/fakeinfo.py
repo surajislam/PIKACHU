@@ -25,11 +25,11 @@ SOFTWARE.
 from pyrogram import Client, filters
 from faker import Faker
 from pyrogram.types import InlineKeyboardButton, InlineKeyboardMarkup
-from MahakRobot import pbot for app
+from MahakRobot import pbot as app
 
 EVAA = [
     [
-        InlineKeyboardButton(text="ᴀᴅᴅ ᴍᴇ ʙᴀʙʏ", url=f"https://t.me/nykaaxbot?startgroup=true"),
+        InlineKeyboardButton(text="ᴀᴅᴅ ᴍᴇ ʙᴀʙʏ", url=f"https://t.me/mahakxbot?startgroup=true"),
     ],
 ]
 
