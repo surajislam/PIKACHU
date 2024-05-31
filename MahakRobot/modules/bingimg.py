@@ -1,10 +1,12 @@
 import json
+
 import requests
 from pyrogram import Client, filters
 from pyrogram.types import InputMediaPhoto, Message
 from MahakRobot import pbot as app
 
-@app.on_message(filters.command("bimg"))
+
+@app.on_message(filters.command("bingimg"))
 async def bingimg_search(client: Client, message: Message):
     try:
         text = message.text.split(None, 1)[
@@ -39,6 +41,7 @@ async def bingimg_search(client: Client, message: Message):
 
     # Delete the searching message and the original command message
     await search_message.delete()
+    await message.delete()
 
 __mod_name__ = "ɪᴍᴀɢᴇ"
 __help__ = """
