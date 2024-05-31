@@ -18,7 +18,7 @@ from MahakRobot.events import register
 #        return isinstance(
 #            (await telethn(functions.channels.GetParticipantRequest(chat, user))).participant,
 #            (types.ChannelParticipantAdmin, types.ChannelParticipantCreator)
-        )
+#        )
 #    elif isinstance(chat, types.InputPeerChat):
 
 #        ui = await client.get_peer_id(user)
