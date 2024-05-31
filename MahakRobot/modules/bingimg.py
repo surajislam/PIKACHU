@@ -43,5 +43,5 @@ async def bingimg_search(client: Client, message: Message):
 __mod_name__ = "ɪᴍᴀɢᴇ"
 __help__ = """
  ❍ /bimg ➛ ɢᴇɴᴇʀᴀᴛᴇ ɪᴍᴀɢᴇ ʙʏ ɢɪᴠɪɴɢ ǫᴜᴇʀʏ.
- ❍ /gimg ➛ ɢɪᴠᴇ ǫᴜᴇʀʏ ᴛᴏ ɢᴇᴛ ɪᴍᴀɢᴇ ᴄᴏʟʟᴇᴄᴛɪᴏɴ ғʀᴏᴍ ɢᴏᴏɢʟᴇ.
+ ❍ /draw ➛ ɢᴇɴᴇʀᴀᴛᴇ ɪᴍᴀɢᴇ ʙʏ ɢɪᴠɪɴɢ ǫᴜᴇʀʏ.
  """
