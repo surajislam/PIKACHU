@@ -27,4 +27,4 @@ def pic_command(client, message: Message):
         else:
             client.send_message(message.chat.id, "✦ғᴀɪʟᴇᴅ ᴛᴏ ғᴇᴛᴄʜ ɪᴍᴀɢᴇ.")
     except requests.RequestException as e:
-        client.send_message(message.chat.id, f"✦ ᴀɴ ᴇʀʀᴏʀ ᴏᴄᴄᴜʀʀᴇᴅ ➥ {str(e)}")
+        client.send_message(message.chat.id, f"✦ ᴀɴ ᴇʀʀᴏʀ ᴏᴄᴄᴜʀʀᴇᴅm. ➥ {str(e)}")
