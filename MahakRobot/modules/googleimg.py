@@ -17,7 +17,7 @@ from MahakRobot.events import register
 
 #        return isinstance(
 #            (await telethn(functions.channels.GetParticipantRequest(chat, user))).participant,
-            (types.ChannelParticipantAdmin, types.ChannelParticipantCreator)
+#            (types.ChannelParticipantAdmin, types.ChannelParticipantCreator)
         )
 #    elif isinstance(chat, types.InputPeerChat):
 
@@ -25,11 +25,11 @@ from MahakRobot.events import register
 #        ps = (await client(functions.messages.GetFullChatRequest(chat.chat_id))) \
 #            .full_chat.participants.participants
 #        return isinstance(
-            next((p for p in ps if p.user_id == ui), None),
+#            next((p for p in ps if p.user_id == ui), None),
 #            (types.ChatParticipantAdmin, types.ChatParticipantCreator)
         )
 #    else:
-        return None
+#        return None
 
 
 @register(pattern="^/gimg (.*)")
