@@ -1,46 +1,33 @@
-import io
+from pyrogram import Client, filters
+from MahakRobot import pbot as app 
+from pyrogram.types import InlineKeyboardButton, InlineKeyboardMarkup
 
-import aiohttp
-from telethon.tl import functions, types
+EVAA = [
+    [
+        InlineKeyboardButton(text="ᴀᴅᴅ ᴍᴇ ʙᴀʙʏ", url=f"https://t.me/mahakxbot?startgroup=true"),
+    ],
+]
 
-from MahakRobot import telethn as tbot
-from MahakRobot.events import register
+@app.on_message(filters.command("weather"))
+def weather(client, message):
+    try:
+        # Get the location from user message
+        user_input = message.command[1]
+        location = user_input.strip()
+        weather_url = f"https://wttr.in/{location}.png"
 
-
-async def is_register_admin(chat, user):
-    if isinstance(chat, (types.InputPeerChannel, types.InputChannel)):
-        return isinstance(
-            (
-                await tbot(functions.channels.GetParticipantRequest(chat, user))
-            ).participant,
-            (types.ChannelParticipantAdmin, types.ChannelParticipantCreator),
-        )
-    if isinstance(chat, types.InputPeerUser):
-        return True
-
-
-@register(pattern="^/weather (.*)")
-async def _(event):
-    if event.fwd_from:
-        return
-
-    sample_url = "https://wttr.in/{}.png"
-    # logger.info(sample_url)
-    input_str = event.pattern_match.group(1)
-    async with aiohttp.ClientSession() as session:
-        response_api_zero = await session.get(sample_url.format(input_str))
-        # logger.info(response_api_zero)
-        response_api = await response_api_zero.read()
-        with io.BytesIO(response_api) as out_file:
-            await event.reply(file=out_file)
-
+        # Reply with the weather information as a photo
+        message.reply_photo(photo=weather_url, caption="✦ ʜᴇʀᴇ's ᴛʜᴇ ᴡᴇᴀᴛʜᴇʀ ғᴏʀ ʏᴏᴜʀ ʟᴏᴄᴀᴛɪᴏɴ.\n\n๏ ᴘᴏᴡᴇʀᴇᴅ ʙʏ ➠ ๛ᴍ ᴀ ʜ ᴀ ᴋ ♡゙", reply_markup=InlineKeyboardMarkup(EVAA),)
+    except IndexError:
+        # User didn't provide a location
+        message.reply_text("✦ Please provide a location. ♥︎ Use /weather `ᴄɪᴛʏ ɴᴀᴍᴇ`")
 
 __help__ = """
  ❍ ɪ ᴄᴀɴ ғɪɴᴅ ᴡᴇᴀᴛʜᴇʀ ᴏғ ᴀʟʟ ᴄɪᴛɪᴇs
 
  ❍ /weather <ᴄɪᴛʏ>* ➛* ᴀᴅᴠᴀɴᴄᴇᴅ ᴡᴇᴀᴛʜᴇʀ ᴍᴏᴅᴜʟᴇ, ᴜsᴀɢᴇ sᴀᴍᴇ ᴀs /ᴡᴇᴀᴛʜᴇʀ
  
- ❍ /weather  ᴍᴏᴏɴ* ➛* ɢᴇᴛ ᴛʜᴇ ᴄᴜʀʀᴇɴᴛ sᴛᴀᴛᴜs ᴏғ ᴍᴏᴏɴ
+ ❍ /weather ᴍᴏᴏɴ * ➛* ɢᴇᴛ ᴛʜᴇ ᴄᴜʀʀᴇɴᴛ sᴛᴀᴛᴜs ᴏғ ᴍᴏᴏɴ
 """
 
 __mod_name__ = "ᴡᴇᴀᴛʜᴇʀ"
