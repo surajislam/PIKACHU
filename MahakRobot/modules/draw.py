@@ -18,7 +18,7 @@ async def draw_(b, message: Message):
         x=api.ai_image(text)
         with open("nykaa.jpg", 'wb') as f:
             f.write(x)
-        caption = f"""⬤ ᴅʀᴀᴡɪɴɢ ɢᴇɴ ʙʏ ➥ ᴀ ᴠ ʏ ᴀ ࿐"""
+        caption = f"""⬤ ᴅʀᴀᴡɪɴɢ ɢᴇɴᴇʀᴀᴛᴇ ʙʏ ➥  ๛ᴍ ᴀ ʜ ᴀ ᴋ ♡゙ """
         await app.delete()
         await message.reply_photo("nykaa.jpg",caption=caption,quote=True)
     except Exception as e:
