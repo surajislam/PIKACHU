@@ -37,8 +37,8 @@ async def img_sampler(event):
      if event.fwd_from:
         return
      if event.is_group:
-       if not (await is_register_admin(event.input_chat, event.message.sender_id)):
-          await event.reply("♥︎ ʏᴏᴜ ᴀʀᴇ ɴᴏᴛ ᴀɴ ᴀᴅᴍɪɴ, ʏᴏᴜ ᴄᴀɴ'ᴛ ᴜsᴇ ᴛʜɪs ᴄᴍᴅ,, ʙᴜᴛ ʏᴏᴜ ᴄᴀɴ ᴜsᴇ ɪɴ ᴍʏ ᴘᴍ.")
+#       if not (await is_register_admin(event.input_chat, event.message.sender_id)):
+#          await event.reply("♥︎ ʏᴏᴜ ᴀʀᴇ ɴᴏᴛ ᴀɴ ᴀᴅᴍɪɴ, ʏᴏᴜ ᴄᴀɴ'ᴛ ᴜsᴇ ᴛʜɪs ᴄᴍᴅ,, ʙᴜᴛ ʏᴏᴜ ᴄᴀɴ ᴜsᴇ ɪɴ ᴍʏ ᴘᴍ.")
           return
      query = event.pattern_match.group(1)
      jit = f'"{query}"'
