@@ -23,10 +23,10 @@ from MahakRobot.events import register
 
 #        ui = await client.get_peer_id(user)
 #        ps = (await client(functions.messages.GetFullChatRequest(chat.chat_id))) \
-            .full_chat.participants.participants
+#            .full_chat.participants.participants
 #        return isinstance(
             next((p for p in ps if p.user_id == ui), None),
-            (types.ChatParticipantAdmin, types.ChatParticipantCreator)
+#            (types.ChatParticipantAdmin, types.ChatParticipantCreator)
         )
 #    else:
         return None
