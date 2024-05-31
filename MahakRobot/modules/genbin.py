@@ -28,7 +28,7 @@ SOFTWARE.
 
 from pyrogram import Client, filters
 import random
-from DAXXMUSIC import qbot as app
+from MahakRobot import qbot as app
 from pyrogram.types import InlineKeyboardButton, InlineKeyboardMarkup
 
 EVAA = [
