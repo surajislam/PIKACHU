@@ -28,7 +28,7 @@ SOFTWARE.
 
 from pyrogram import Client, filters
 import random
-from MahakRobot import qbot as app
+from MahakRobot import pbot as app
 from pyrogram.types import InlineKeyboardButton, InlineKeyboardMarkup
 
 EVAA = [
