@@ -27,3 +27,8 @@ async def imagine_(b, message: Message):
         await message.reply_photo("roy.jpg",caption=caption,quote=True)
     except Exception as e:
         await roy.edit_text(f"error {e}")
+
+__mod_name__ = "ɪᴍᴀɢᴇ"
+__help__ = """
+ ❍ /draw ➛ ɢᴇɴᴇʀᴀᴛᴇ ɪᴍᴀɢᴇ ʙʏ ɢɪᴠɪɴɢ ǫᴜᴇʀʏ ʙʏ ʙɪɴɢ.
+ """
