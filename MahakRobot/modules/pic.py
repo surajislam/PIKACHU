@@ -13,7 +13,7 @@ def pic_command(client, message: Message):
     try:
         name = message.command[1]
     except IndexError:
-        client.send_message(message.chat.id, "✦ Please provide a name after the /pic command.")
+        client.send_message(message.chat.id, "✦ ᴘʟᴇᴀsᴇ ᴘʀᴏᴠɪᴅᴇ ᴀ ɴᴀᴍᴇ ᴀғᴛᴇʀ ᴛʜᴇ /pic ᴄᴏᴍᴍᴀɴᴅ.")
         return
 
     # Build the Unsplash URL with the provided name
