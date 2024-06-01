@@ -33,7 +33,7 @@ class Config(object):
    
     LOG_CHANNEL = getenv("LOG_CHANNEL", "-1002126936204")
    
-    BOT_USERNAME = getenv("BOT_USERNAME" , "MahakXBot")
+    BOT_USERNAME = getenv("BOT_USERNAME" , "GALAKOO_USER_BOT")
    
     DATABASE_URL = getenv("DATABASE_URL", None)
 
