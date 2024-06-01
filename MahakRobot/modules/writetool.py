@@ -6,7 +6,7 @@ import requests
 
 EVAA = [
     [
-        InlineKeyboardButton(text="ᴀᴅᴅ ᴍᴇ ʙᴀʙʏ", url=f"https://t.me/mahakxbot?startgroup=true"),
+        InlineKeyboardButton(text="ᴀᴅᴅ ᴍᴇ ʙᴀʙʏ", url=f"https://t.me/GALAKOO_USER_BOT?startgroup=true"),
     ],
 ]
 
@@ -20,7 +20,7 @@ async def handwrite(_, message: Message):
     write = requests.get(f"https://apis.xditya.me/write?text={text}").url
 
     caption = f"""
-❖ ᴘᴏᴡᴇʀᴇᴅ ʙʏ ➥ [๛ᴍ ᴀ ʜ ᴀ ᴋ ♡゙](https://t.me/mahakxbot)
+❖ ᴘᴏᴡᴇʀᴇᴅ ʙʏ ➥ [ⁱ ᵃᵐ𒈏𝗚𝐋𝐀𔓙𝐊𝐎𝐎𔒒](https://t.me/GALAKOO_USER_BOT)
 """
     await m.delete()
     await message.reply_photo(photo=write,caption=caption, reply_markup=InlineKeyboardMarkup(EVAA),)
