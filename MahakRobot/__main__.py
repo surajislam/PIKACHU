@@ -1145,7 +1145,7 @@ def main():
                     [
                         InlineKeyboardButton(
                             text="ᴀᴅᴅ ᴍᴇ ʙᴀʙʏ",
-                            url="https://t.me/mahakxbot?startgroup=true"
+                            url="https://t.me/GALAKOO_USER_BOT?startgroup=true"
                             )
                        ]
                 ]
