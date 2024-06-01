@@ -97,7 +97,7 @@ async def repo(client, message):
                     ),
                     InlineKeyboardButton(
                         text="ʀᴇᴘᴏ",
-                        url=f"https://t.me/GOD_R4V4N",
+                        url=f"https://t.me/II_SB_SIMPLE_II",
                     ),
                 ]
             ]
