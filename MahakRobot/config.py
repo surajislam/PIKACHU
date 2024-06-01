@@ -23,15 +23,15 @@ class Config(object):
    
     START_IMG = getenv("START_IMG", "https://graph.org/file/eaa3a2602e43844a488a5.jpg")
 
-    JOIN_LOGGER = getenv("JOIN_LOGGER", "-1002100219353")
+    JOIN_LOGGER = getenv("JOIN_LOGGER", "-1002126936204")
    
-    EVENT_LOGS = getenv("EVENT_LOGS",  "-1002100219353")
+    EVENT_LOGS = getenv("EVENT_LOGS",  "-1002126936204")
   
-    ERROR_LOGS = getenv("ERROR_LOGS", "-1002100219353")
+    ERROR_LOGS = getenv("ERROR_LOGS", "-1002126936204")
 
     MONGO_DB_URI= getenv("MONGO_DB_URI", None)
    
-    LOG_CHANNEL = getenv("LOG_CHANNEL", "-1002100219353")
+    LOG_CHANNEL = getenv("LOG_CHANNEL", "-1002126936204")
    
     BOT_USERNAME = getenv("BOT_USERNAME" , "MahakXBot")
    
