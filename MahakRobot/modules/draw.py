@@ -28,8 +28,3 @@ async def imagine_(b, message: Message):
     except Exception as e:
         await roy.edit_text(f"error {e}")
 
-__mod_name__ = "ɪᴍᴀɢᴇ"
-__help__ = """
- ❍ /draw ➛ ɢᴇɴᴇʀᴀᴛᴇ ɪᴍᴀɢᴇ ʙʏ ɢɪᴠɪɴɢ ǫᴜᴇʀʏ ʙʏ ʙɪɴɢ.
- ❍ /pic  ➛ ɢᴇɴᴇʀᴀᴛᴇ ᴀ ʀᴀɴᴅᴏᴍ ɪᴍᴀɢᴇ ʙʏ ɢɪᴠɪɴɢ ɴᴀᴍᴇ.
- """
