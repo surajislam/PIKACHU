@@ -155,8 +155,8 @@ __help__="""
 
    ✿ *ꜱᴇᴛᴜᴘ* ✿
    
-   ❍ [ᴀᴅᴅ ᴍᴇ ɪɴ ʏᴏᴜʀ ɢʀᴏᴜᴘ ᴀꜱ ᴀᴅᴍɪɴ](https://t.me/mahakxbot?startgroup=new)
-   ❍ [ᴀᴅᴅ ᴍᴇ ɪɴ your ᴄʜᴀɴɴᴇʟ ᴀꜱ ᴀᴅᴍɪɴ](https://t.me/mahakxbot?startgroup=new)
+   ❍ [ᴀᴅᴅ ᴍᴇ ɪɴ ʏᴏᴜʀ ɢʀᴏᴜᴘ ᴀꜱ ᴀᴅᴍɪɴ](https://t.me/GALAKOO_USER_BOT?startgroup=new)
+   ❍ [ᴀᴅᴅ ᴍᴇ ɪɴ your ᴄʜᴀɴɴᴇʟ ᴀꜱ ᴀᴅᴍɪɴ](https://t.me/GALAKOO_USER_BOT?startgroup=new)
  
    ✿ *ᴄᴏᴍᴍᴍᴀɴᴅꜱ* ✿
     
