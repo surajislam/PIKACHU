@@ -8,7 +8,7 @@ from PIL import Image, ImageDraw, ImageFont
 
 EVAA = [
     [
-        InlineKeyboardButton(text="ᴀᴅᴅ ᴍᴇ ʙᴀʙʏ", url=f"https://t.me/mahakxbot?startgroup=true"),
+        InlineKeyboardButton(text="ᴀᴅᴅ ᴍᴇ ʙᴀʙʏ", url=f"https://t.me/GALAKOO_USER_BOT?startgroup=true"),
     ],
 ]
 
