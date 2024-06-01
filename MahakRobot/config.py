@@ -19,7 +19,7 @@ class Config(object):
 
     OWNER_USERNAME = ("OWNER_USERNAME", "II_SB_SIMPLE_II")
     
-    SUPPORT_CHAT = getenv("SUPPORT_CHAT", "anokhikeduniya")
+    SUPPORT_CHAT = getenv("SUPPORT_CHAT", "pikachuworld0099")
    
     START_IMG = getenv("START_IMG", "https://graph.org/file/eaa3a2602e43844a488a5.jpg")
 
