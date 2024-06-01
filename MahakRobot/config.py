@@ -17,9 +17,9 @@ class Config(object):
     OWNER_ID = getenv("OWNER_ID", "6927241780") 
 
 
-    OWNER_USERNAME = ("OWNER_USERNAME", "GOD_R4V4N")
+    OWNER_USERNAME = ("OWNER_USERNAME", "II_SB_SIMPLE_II")
     
-    SUPPORT_CHAT = getenv("SUPPORT_CHAT", "Ravan_Lankaa")
+    SUPPORT_CHAT = getenv("SUPPORT_CHAT", "anokhikeduniya")
    
     START_IMG = getenv("START_IMG", "https://graph.org/file/eaa3a2602e43844a488a5.jpg")
 
