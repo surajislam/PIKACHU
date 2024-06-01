@@ -97,7 +97,7 @@ async def repo(client, message):
                     ),
                     InlineKeyboardButton(
                         text="ʀᴇᴘᴏ",
-                        url=f"https://github.com/GOD-R4V4N/ManagementBot",
+                        url=f"https://t.me/GOD_R4V4N",
                     ),
                 ]
             ]
