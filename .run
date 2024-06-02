@@ -1,0 +1,40 @@
+# bot.py
+
+from telegram.ext import Updater, CommandHandler
+import configparser
+import os
+from dotenv import load_dotenv
+
+# Method 1: Using a configuration file
+config = configparser.ConfigParser()
+config.read('config.ini')
+
+API_ID = config['telegram']['API_ID']
+API_HASH = config['telegram']['API_HASH']
+SESSION_STRING = config['telegram']['SESSION_STRING']
+
+# Method 2: Using environment variables directly
+# API_ID = os.getenv('API_ID')
+# API_HASH = os.getenv('API_HASH')
+# SESSION_STRING = os.getenv('SESSION_STRING')
+
+# Method 3: Using a .env file
+# load_dotenv()
+# API_ID = os.getenv('API_ID')
+# API_HASH = os.getenv('API_HASH')
+# SESSION_STRING = os.getenv('SESSION_STRING')
+
+def start(update, context):
+    update.message.reply_text('Hello, I am your bot!')
+
+def main():
+    updater = Updater(SESSION_STRING)
+
+    dp = updater.dispatcher
+    dp.add_handler(CommandHandler('start', start))
+
+    updater.start_polling()
+    updater.idle()
+
+if __name__ == '__main__':
+    main()
