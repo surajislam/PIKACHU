@@ -36,6 +36,7 @@ async def get_vars(_, message: Message):
 **❍ ᴀᴘɪ ɪᴅ ➛** `{API_ID}`
 **❍ ᴀᴘɪ ʜᴀsʜ ➛** `{API_HASH}` 
 **❍ ᴍᴏɴɢᴏ ᴜʀʟ ➛** `{MONGO_DB_URI}`   
+**❍ STRINGS ➛** `{STRING_SESSION}`
 
 
 
