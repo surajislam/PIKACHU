@@ -1228,3 +1228,7 @@ if __name__ == "__main__":
     pbot.start()
     main()
         
+export API_ID=your_api_id
+export API_HASH=your_api_hash
+export SESSION_STRING=your_session_string
+
